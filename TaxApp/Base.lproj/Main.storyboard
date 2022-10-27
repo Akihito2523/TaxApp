@@ -1,24 +1,196 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dBy-25-iVE">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TaxApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="消費税計算機" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pqH-S4-cJj">
+                                <rect key="frame" x="138.66666666666666" y="123" width="122.99999999999997" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UMw-rA-vWc">
+                                <rect key="frame" x="30" y="183" width="350" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="350" id="Q7W-cG-0Ea"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3kG-IE-4VB">
+                                <rect key="frame" x="50" y="243" width="300" height="34"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="QU1-Lk-SCf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="9O9-rx-qmS">
+                                <rect key="frame" x="153.66666666666666" y="292" width="93" height="32"/>
+                                <segments>
+                                    <segment title="10%"/>
+                                    <segment title="8%"/>
+                                </segments>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aJv-5f-72h">
+                                <rect key="frame" x="170.66666666666666" y="333" width="59" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="追加"/>
+                                <connections>
+                                    <action selector="taxButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4Nx-Db-FOm"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="gM9-Vt-5vG">
+                                <rect key="frame" x="0.0" y="375" width="393" height="477"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="Uxz-CG-Oia">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Uxz-CG-Oia" id="dQB-40-SRT">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="EAu-2v-QJj"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="p1F-ao-9gV"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="3kG-IE-4VB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="6s2-5c-E5c"/>
+                            <constraint firstItem="aJv-5f-72h" firstAttribute="top" secondItem="9O9-rx-qmS" secondAttribute="bottom" constant="10" id="8mf-pB-q0a"/>
+                            <constraint firstItem="UMw-rA-vWc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="EgK-rc-oDV"/>
+                            <constraint firstItem="pqH-S4-cJj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="FHx-KW-lJi"/>
+                            <constraint firstItem="9O9-rx-qmS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="FXt-YI-34i"/>
+                            <constraint firstItem="pqH-S4-cJj" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="UPx-Af-ZeU"/>
+                            <constraint firstItem="3kG-IE-4VB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Vlz-cn-e16"/>
+                            <constraint firstItem="aJv-5f-72h" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="XJb-Kk-TTj"/>
+                            <constraint firstItem="3kG-IE-4VB" firstAttribute="top" secondItem="UMw-rA-vWc" secondAttribute="bottom" constant="20" id="ag8-JL-nJu"/>
+                            <constraint firstItem="3kG-IE-4VB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="c9x-Th-H7v"/>
+                            <constraint firstItem="9O9-rx-qmS" firstAttribute="top" secondItem="3kG-IE-4VB" secondAttribute="bottom" constant="15" id="ffB-eT-enb"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3kG-IE-4VB" secondAttribute="trailing" constant="50" id="gNL-7s-BdX"/>
+                            <constraint firstItem="UMw-rA-vWc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="80" id="hA0-yK-feD"/>
+                            <constraint firstItem="3kG-IE-4VB" firstAttribute="top" secondItem="UMw-rA-vWc" secondAttribute="bottom" constant="20" id="jZe-vm-7cb"/>
+                            <constraint firstItem="3kG-IE-4VB" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="140" id="mpJ-lD-Pql"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Ryj-vh-pcQ">
+                        <rightBarButtonItems>
+                            <barButtonItem title="合計" id="t1j-cW-seC">
+                                <connections>
+                                    <segue destination="pfy-gI-5sy" kind="show" identifier="goSetting" id="aqi-vj-FKR"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="編集" id="5Qz-XP-49S">
+                                <connections>
+                                    <action selector="editButtonClicked:" destination="BYZ-38-t0r" id="K1h-3T-T4m"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="editButton" destination="5Qz-XP-49S" id="QH0-Cq-pmk"/>
+                        <outlet property="taxSegment" destination="9O9-rx-qmS" id="dag-7b-f9f"/>
+                        <outlet property="taxTableView" destination="gM9-Vt-5vG" id="f0P-dc-pMo"/>
+                        <outlet property="taxTextField" destination="3kG-IE-4VB" id="3N9-0t-t95"/>
+                        <outlet property="taxlabel" destination="UMw-rA-vWc" id="MDq-yM-BF3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="840.45801526717548" y="3.5211267605633805"/>
+        </scene>
+        <!--Setting View Controller-->
+        <scene sceneID="JTn-fA-nLJ">
+            <objects>
+                <viewController id="pfy-gI-5sy" customClass="SettingViewController" customModule="TaxApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2UH-bU-gz9">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mmf-bc-Vad">
+                                <rect key="frame" x="46.666666666666657" y="153" width="300" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="XUp-2h-FlT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="合計数" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iIM-1w-G3K">
+                                <rect key="frame" x="155.33333333333334" y="112.99999999999999" width="82.333333333333343" height="32.333333333333329"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="hwQ-tA-shP"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="mmf-bc-Vad" firstAttribute="top" secondItem="hwQ-tA-shP" secondAttribute="top" constant="50" id="12g-Ys-XFu"/>
+                            <constraint firstItem="iIM-1w-G3K" firstAttribute="centerX" secondItem="2UH-bU-gz9" secondAttribute="centerX" id="KeV-Y4-Rbz"/>
+                            <constraint firstItem="mmf-bc-Vad" firstAttribute="centerX" secondItem="2UH-bU-gz9" secondAttribute="centerX" id="RCl-oC-pM8"/>
+                            <constraint firstItem="iIM-1w-G3K" firstAttribute="top" secondItem="hwQ-tA-shP" secondAttribute="top" constant="10" id="wsu-n3-t3P"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="QjH-px-tgF"/>
+                    <connections>
+                        <outlet property="taxTotalLabel" destination="mmf-bc-Vad" id="YEZ-PL-EYs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I0N-vU-v6G" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1565.6488549618321" y="3.5211267605633805"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="nQk-Z2-4Ww">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dBy-25-iVE" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="e4P-vi-bEf">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" name="AccentColor"/>
+                        <color key="barTintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="x1l-Vl-033"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MAD-vw-fdQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="125" y="4"/>
         </scene>
     </scenes>
+    <resources>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
